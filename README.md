@@ -1,2 +1,2 @@
 # _username_.github.io
-![fish image](relative_path_to_image)
+![fish image](IMG_1016.jpg)
