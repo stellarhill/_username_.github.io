@@ -1,12 +1,7 @@
 body {
-    background: linear-gradient(to bottom, #bcb88a, #8e908f);
+    background: linear-gradient(to bottom, #f7b66f, #93b3e6);
 }
 
-button {
-    transition: transform 0.3s;
-}
-button:hover {
-    transform: scale(1.1);
-}
+
 
 
