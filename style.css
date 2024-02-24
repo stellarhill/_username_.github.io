@@ -1,4 +1,12 @@
 body {
-    background-color: #bcb88a; /* Sage color */
+    background: linear-gradient(to bottom, #bcb88a, #8e908f);
 }
+
+button {
+    transition: transform 0.3s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+
 
