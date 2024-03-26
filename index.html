@@ -33,6 +33,11 @@
             console.log("Updating i: " + i);
             countobj.innerHTML = "<b>" + i + "</b>";
 
+// Calculate color based on current count
+            var redValue = Math.round((5 - i) * (255 / 5));
+            var color = "rgb(" + redValue + ", 0, 0)";
+            document.body.style.backgroundColor = color;
+          
             if (i <= 0) {
                 countobj.innerHTML = "<b>SURPRISE!</b>";
             }
