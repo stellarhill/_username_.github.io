@@ -30,18 +30,18 @@
     <button onclick="updateCount()">Next</button>
 
     <script>
-        var i = 20;
+        var i = 4;
 
-        function updateCount(
-       if (i <= 0) { // double "==" is equality comparison
-                countobj.innerHTML = "<b><font size='+10'>SURPRISE!</b>";) {
+        function updateCount() {
             i = i - 1;
             countobj = document.getElementById("count");
             console.log("Updating object: " + countobj);
             countobj.innerHTML = "<b>" + i + "</b>";
+
+           if (i <= 0) { // double "==" is equality comparison
+                countobj.innerHTML = "<b><font size='+10'>SURPRISE!</b>";
         }
 
-  
             
     </script>
 </body>
