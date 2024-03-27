@@ -52,18 +52,59 @@
     <h2>Count Down: <span id="count"><script>document.write(i)</script></span></h2>
     <button onclick="updateCount()">Next</button>
 
-</body>
-</html>
-
+<!DOCTYPE html>
 <html>
+<head>
+    <title>Exploring the DOM</title>
+</head>
 <body>
-    <h1>Don't Press This Button ! </h1>
+    <h1>Exploring the DOM</h1>
+
+    <h2>Count Down: <span id="count"><script>document.write(i)</script></span></h2>
+    <button onclick="updateCount()">Next</button>
 
     <script>
+        var i = 5;
+
         function updateCount() {
             i = i - 1;
 
             countobj = document.getElementById("count");
+            console.log("Updating i: " + i);
+            countobj.innerHTML = "<b>" + i + "</b>";
+
+            // Calculate color based on current count
+            var redValue = Math.round((5 - i) * (255 / 5));
+            var color = "rgb(" + redValue + ", 0, 0)";
+            document.body.style.backgroundColor = color;
+
+            if (i <= 0) {
+                countobj.innerHTML = "<b>SURPRISE!</b>";
+            }
+
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Don't Press This Button!</title>
+</head>
+<body>
+    <h1>Don't Press This Button!</h1>
+
+    <h2>Count Down: <span id="count2"><script>document.write(i)</script></span></h2>
+    <button onclick="updateCount2()">Next</button>
+
+    <script>
+        var i = 5;
+
+        function updateCount2() {
+            i = i - 1;
+
+            countobj = document.getElementById("count2");
             console.log("Updating i: " + i);
             countobj.innerHTML = "<b>" + i + "</b>";
 
@@ -73,15 +114,5 @@
 
         }
     </script>
-
-    <script>
-        var i = 5;
-    </script>
-
-    <h2>Count Down: <span id="count"><script>document.write(i)</script></span></h2>
-    <button onclick="updateCount()">Next</button>
-
 </body>
 </html>
-
-
