@@ -18,40 +18,6 @@
 <img src="IMG_1016.jpg" alt="silly fish"  width="800" height="600">
 
 
-</body>  
-</html>
-
-<html>
-<body>
-    <h1>Exploring the DOM</h1>
-
-    <script>
-        function updateCount() {
-            i = i - 1;
-
-            countobj = document.getElementById("count");
-            console.log("Updating i: " + i);
-            countobj.innerHTML = "<b>" + i + "</b>";
-
-// Calculate color based on current count
-            var redValue = Math.round((5 - i) * (255 / 5));
-            var color = "rgb(" + redValue + ", 0, 0)";
-            document.body.style.backgroundColor = color;
-          
-            if (i <= 0) {
-                countobj.innerHTML = "<b>SURPRISE!</b>";
-            }
-
-        }
-    </script>
-
-    <script>
-        var i = 5;
-    </script>
-
-    <h2>Count Down: <span id="count"><script>document.write(i)</script></span></h2>
-    <button onclick="updateCount()">Next</button>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,20 +61,20 @@
 <body>
     <h1>Don't Press This Button!</h1>
 
-    <h2>Count Down: <span id="count2"><script>document.write(i)</script></span></h2>
+    <h2>Count Down: <span id="count2"><script>document.write(j)</script></span></h2>
     <button onclick="updateCount2()">Next</button>
 
     <script>
-        var i = 5;
+        var j = 5;
 
         function updateCount2() {
-            i = i - 1;
+            j = j - 1;
 
             countobj = document.getElementById("count2");
-            console.log("Updating i: " + i);
-            countobj.innerHTML = "<b>" + i + "</b>";
+            console.log("Updating j: " + j);
+            countobj.innerHTML = "<b>" + j + "</b>";
 
-            if (i <= 0) {
+            if (j <= 0) {
                 countobj.innerHTML = "<img src='side eye dog.jpg' alt='Boom!' style='width: 200px; height: 200px;'>";
             }
 
