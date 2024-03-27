@@ -55,3 +55,33 @@
 </body>
 </html>
 
+<html>
+<body>
+    <h1>Don't Press This Button ! </h1>
+
+    <script>
+        function updateCount() {
+            i = i - 1;
+
+            countobj = document.getElementById("count");
+            console.log("Updating i: " + i);
+            countobj.innerHTML = "<b>" + i + "</b>";
+
+            if (i <= 0) {
+                countobj.innerHTML = "<img src='side eye dog.jpg' alt='Boom!' style='width: 200px; height: 200px;'>";
+            }
+
+        }
+    </script>
+
+    <script>
+        var i = 5;
+    </script>
+
+    <h2>Count Down: <span id="count"><script>document.write(i)</script></span></h2>
+    <button onclick="updateCount()">Next</button>
+
+</body>
+</html>
+
+
