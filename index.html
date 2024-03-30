@@ -82,3 +82,52 @@
     </script>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Favorite Movies</title>
+</head>
+<body>
+    <h1>Photo Carousel</h1>
+    <img id="carouselImage" height="400" src="" alt="Image Changes">
+    <br>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+    <script>
+        var images = [
+            'https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
+            'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg',
+            'https://m.media-amazon.com/images/M/MV5BNzY2NzI4OTE5MF5BMl5BanBnXkFtZTcwMjMyNDY4Mw@@._V1_.jpg'
+        ];
+        var currentIndex = 0;
+        var carouselImage = document.getElementById("carouselImage");
+
+        function showImage(index) {
+            if (index < 0) {
+                index = images.length - 1;
+            } else if (index >= images.length) {
+                index = 0;
+            }
+            carouselImage.src = images[index];
+            currentIndex = index;
+        }
+
+        function prevImage() {
+            showImage(currentIndex - 1);
+        }
+
+        function nextImage() {
+            showImage(currentIndex + 1);
+        }
+
+        // Show the first image when the page loads
+        showImage(0);
+    </script>
+</body>
+</html>
+
