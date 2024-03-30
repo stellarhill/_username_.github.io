@@ -157,7 +157,10 @@
 </head>
 <body>
     <h1>My Favorite Shows</h1>
-    <img id="showCarouselImage" height="400" src="" alt="Image Changes">
+    <div style="position: relative;">
+        <img id="showCarouselImage" height="400" src="" alt="Image Changes">
+        <div id="confetti" class="confetti"></div>
+    </div>
     <br>
     <button onclick="prevShowImage()">Previous</button>
     <button onclick="nextShowImage()">Next</button>
@@ -167,4 +170,40 @@
             'https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg',
             'https://i.ebayimg.com/images/g/DakAAOSwdlxkBq4z/s-l1200.webp',
             'https://m.media-amazon.com/images/M/MV5BYjdjNzBmYjEtM2Y5My00YjI0LWJjY2YtOGQ4MjNkNmE2MDVjXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_FMjpg_UX1000_.jpg',
-            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7894445_b_v13
+            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7894445_b_v13_ag.jpg',
+            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p183996_b_v8_aa.jpg',
+            'https://m.media-amazon.com/images/I/91S-dMxRCbL._AC_UF894,1000_QL80_.jpg',
+            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p13434392_b_v13_ag.jpg'
+        ];
+        var currentShowIndex = 0;
+        var showCarouselImage = document.getElementById("showCarouselImage");
+        var confetti = document.getElementById("confetti");
+
+        function showShowImage(index) {
+            if (index >= showImages.length) {
+                // Show confetti animation
+                confetti.style.display = "block";
+                currentShowIndex = showImages.length; // Prevent further cycling
+                return;
+            }
+            if (index < 0) {
+                index = showImages.length - 1;
+            }
+            showCarouselImage.src = showImages[index];
+            currentShowIndex = index;
+            confetti.style.display = "none"; // Hide confetti if not at the end
+        }
+
+        function prevShowImage() {
+            showShowImage(currentShowIndex - 1);
+        }
+
+        function nextShowImage() {
+            showShowImage(currentShowIndex + 1);
+        }
+
+        // Show the first image when the page loads
+        showShowImage(0);
+    </script>
+</body>
+</html>
