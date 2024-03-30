@@ -92,13 +92,13 @@
 </head>
 <body>
     <h1>My Favorite Movies</h1>
-    <img id="carouselImage" height="400" src="" alt="Image Changes">
+    <img id="movieCarouselImage" height="400" src="" alt="Image Changes">
     <br>
-    <button onclick="prevImage()">Previous</button>
-    <button onclick="nextImage()">Next</button>
+    <button onclick="prevMovieImage()">Previous</button>
+    <button onclick="nextMovieImage()">Next</button>
 
     <script>
-        var images = [
+        var movieImages = [
             'https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
             'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg',
             'https://m.media-amazon.com/images/M/MV5BNzY2NzI4OTE5MF5BMl5BanBnXkFtZTcwMjMyNDY4Mw@@._V1_.jpg',
@@ -107,32 +107,30 @@
             'https://m.media-amazon.com/images/M/MV5BNDBmYjNmYTEtMmUwNi00MjMwLWFhYTEtNjRlMGFhZTJmYmY5XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg',
             'https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg'
         ];
-        var currentIndex = 0;
-        var carouselImage = document.getElementById("carouselImage");
+        var currentMovieIndex = 0;
+        var movieCarouselImage = document.getElementById("movieCarouselImage");
 
-        function showImage(index) {
-            // Use modulo to wrap the index around if it goes out of bounds
-            index = (index + images.length) % images.length;
-            carouselImage.src = images[index];
-            currentIndex = index;
+        function showMovieImage(index) {
+            index = (index + movieImages.length) % movieImages.length;
+            movieCarouselImage.src = movieImages[index];
+            currentMovieIndex = index;
         }
 
-        function prevImage() {
-            showImage(currentIndex - 1);
+        function prevMovieImage() {
+            showMovieImage(currentMovieIndex - 1);
         }
 
-        function nextImage() {
-            showImage(currentIndex + 1);
+        function nextMovieImage() {
+            showMovieImage(currentMovieIndex + 1);
         }
 
-        // Show the first image when the page loads
-        showImage(0);
+        showMovieImage(0);
     </script>
 </body>
 </html>
 
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>My Favorite Shows</title>
@@ -159,53 +157,14 @@
 </head>
 <body>
     <h1>My Favorite Shows</h1>
-    <div style="position: relative;">
-        <img id="carouselImage" height="400" src="" alt="Image Changes">
-        <div id="confetti" class="confetti"></div>
-    </div>
+    <img id="showCarouselImage" height="400" src="" alt="Image Changes">
     <br>
-    <button onclick="prevImage()">Previous</button>
-    <button onclick="nextImage()">Next</button>
+    <button onclick="prevShowImage()">Previous</button>
+    <button onclick="nextShowImage()">Next</button>
 
     <script>
-        var images = [
-            'https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg',
+        var showImages = [
+            'https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg',
             'https://i.ebayimg.com/images/g/DakAAOSwdlxkBq4z/s-l1200.webp',
-            'https://m.media-amazon.com/images/M/MV5BYjdjNzBmYjEtM2Y5My00YjI0LWJjY2YtOGQ4MjNkNmE2MDVjXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg',
-            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7894445_b_v13_ab.jpg',
-            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p183996_b_v8_aa.jpg',
-            'https://m.media-amazon.com/images/I/91S-dMxRCbL._AC_UF894,1000_QL80_.jpg',
-            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p13434392_b_v13_ag.jpg'
-        ];
-        var currentIndex = 0;
-        var carouselImage = document.getElementById("carouselImage");
-        var confetti = document.getElementById("confetti");
-
-        function showImage(index) {
-            if (index >= images.length) {
-                // Show confetti animation
-                confetti.style.display = "block";
-                currentIndex = images.length; // Prevent further cycling
-                return;
-            }
-            if (index < 0) {
-                index = images.length - 1;
-            }
-            carouselImage.src = images[index];
-            currentIndex = index;
-            confetti.style.display = "none"; // Hide confetti if not at the end
-        }
-
-        function prevImage() {
-            showImage(currentIndex - 1);
-        }
-
-        function nextImage() {
-            showImage(currentIndex + 1);
-        }
-
-        // Show the first image when the page loads
-        showImage(0);
-    </script>
-</body>
-</html>
+            'https://m.media-amazon.com/images/M/MV5BYjdjNzBmYjEtM2Y5My00YjI0LWJjY2YtOGQ4MjNkNmE2MDVjXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_FMjpg_UX1000_.jpg',
+            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7894445_b_v13
