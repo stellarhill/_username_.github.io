@@ -167,13 +167,15 @@
 
     <script>
         var showImages = [
-            'https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg',
+            'https://m.media-amazon.com/images/I/81GeA1ZlKzL._AC_SY679_.jpg',
             'https://i.ebayimg.com/images/g/DakAAOSwdlxkBq4z/s-l1200.webp',
             'https://m.media-amazon.com/images/M/MV5BYjdjNzBmYjEtM2Y5My00YjI0LWJjY2YtOGQ4MjNkNmE2MDVjXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_FMjpg_UX1000_.jpg',
-            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7894445_b_v13_ag.jpg',
-            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p183996_b_v8_aa.jpg',
+            'https://resizing.flixster.com/25tYnZVLOlQJxYjSPLtTBCsZ_2E=/206x305/v1.bTsxMjQwMjY3ODtqOzE4NDUwOzEyMDA7ODAwOzEyMDA',
+            'https://resizing.flixster.com/uJ93jsrVGaW_fZ2l24JlX1jGukA=/206x305/v2/https://flxt.tmsimg.com/assets/p183996_b_v8_aa.jpg',
             'https://m.media-amazon.com/images/I/91S-dMxRCbL._AC_UF894,1000_QL80_.jpg',
-            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p13434392_b_v13_ag.jpg'
+            'https://resizing.flixster.com/_hHrGE--WMvvWz4Jqg4OFttHYFQ=/206x305/v2/https://resizing.flixster.com/q--mi0ZXbKp4lKu39LRlZ80A2kE=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzMyNjRhN2UwLTk4ZDQtNGY4Yi1iN2M0LTQ1YmM4MjdiMjViMC53ZWJw',
+            'https://resizing.flixster.com/-KqHhxHxvBTElgzG90qf7pohQ-E=/206x305/v2/https://flxt.tmsimg.com/v9/AllPhotos/291307/291307_v9_bb.jpg',
+            'https://resizing.flixster.com/EsQ_Rd3lqP6fLArxL_xRtPnV7iE=/206x305/v2/https://flxt.tmsimg.com/NowShowing/291309/291309_v9_ba.jpg'
         ];
         var currentShowIndex = 0;
         var showCarouselImage = document.getElementById("showCarouselImage");
@@ -190,7 +192,7 @@
                 index = showImages.length - 1;
             }
             showCarouselImage.src = showImages[index];
-            currentShowIndex = index;
+            currentIndex = index;
             confetti.style.display = "none"; // Hide confetti if not at the end
         }
 
