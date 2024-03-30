@@ -130,3 +130,82 @@
     </script>
 </body>
 </html>
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>My Favorite Shows</title>
+    <style>
+        /* Confetti styles */
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: confetti 1s linear;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Favorite Shows</h1>
+    <div style="position: relative;">
+        <img id="carouselImage" height="400" src="" alt="Image Changes">
+        <div id="confetti" class="confetti"></div>
+    </div>
+    <br>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+    <script>
+        var images = [
+            'https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_.jpg',
+            'https://i.ebayimg.com/images/g/DakAAOSwdlxkBq4z/s-l1200.webp',
+            'https://m.media-amazon.com/images/M/MV5BYjdjNzBmYjEtM2Y5My00YjI0LWJjY2YtOGQ4MjNkNmE2MDVjXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX1000_.jpg',
+            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7894445_b_v13_ab.jpg',
+            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p183996_b_v8_aa.jpg',
+            'https://m.media-amazon.com/images/I/91S-dMxRCbL._AC_UF894,1000_QL80_.jpg',
+            'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p13434392_b_v13_ag.jpg'
+        ];
+        var currentIndex = 0;
+        var carouselImage = document.getElementById("carouselImage");
+        var confetti = document.getElementById("confetti");
+
+        function showImage(index) {
+            if (index >= images.length) {
+                // Show confetti animation
+                confetti.style.display = "block";
+                currentIndex = images.length; // Prevent further cycling
+                return;
+            }
+            if (index < 0) {
+                index = images.length - 1;
+            }
+            carouselImage.src = images[index];
+            currentIndex = index;
+            confetti.style.display = "none"; // Hide confetti if not at the end
+        }
+
+        function prevImage() {
+            showImage(currentIndex - 1);
+        }
+
+        function nextImage() {
+            showImage(currentIndex + 1);
+        }
+
+        // Show the first image when the page loads
+        showImage(0);
+    </script>
+</body>
+</html>
