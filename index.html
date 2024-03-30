@@ -134,78 +134,48 @@
 <html>
 <head>
     <title>My Favorite Shows</title>
-    <style>
-        /* Confetti styles */
-        @keyframes confetti {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            animation: confetti 1s linear;
-            animation-fill-mode: forwards;
-        }
-    </style>
 </head>
 <body>
     <h1>My Favorite Shows</h1>
-    <div style="position: relative;">
-        <img id="showCarouselImage" height="400" src="" alt="Image Changes">
-        <div id="confetti" class="confetti"></div>
-    </div>
+    <img id="movieCarouselImage" height="400" src="" alt="Image Changes">
+    <div id="endMessage" style="display: none; font-size: 36px; color: red; text-align: center;">THE END</div>
     <br>
-    <button onclick="prevShowImage()">Previous</button>
-    <button onclick="nextShowImage()">Next</button>
+    <button onclick="prevMovieImage()">Previous</button>
+    <button onclick="nextMovieImage()">Next</button>
 
     <script>
-        var showImages = [
-            'https://m.media-amazon.com/images/I/81GeA1ZlKzL._AC_SY679_.jpg',
-            'https://i.ebayimg.com/images/g/DakAAOSwdlxkBq4z/s-l1200.webp',
-            'https://m.media-amazon.com/images/M/MV5BYjdjNzBmYjEtM2Y5My00YjI0LWJjY2YtOGQ4MjNkNmE2MDVjXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_FMjpg_UX1000_.jpg',
-            'https://resizing.flixster.com/25tYnZVLOlQJxYjSPLtTBCsZ_2E=/206x305/v1.bTsxMjQwMjY3ODtqOzE4NDUwOzEyMDA7ODAwOzEyMDA',
-            'https://resizing.flixster.com/uJ93jsrVGaW_fZ2l24JlX1jGukA=/206x305/v2/https://flxt.tmsimg.com/assets/p183996_b_v8_aa.jpg',
-            'https://m.media-amazon.com/images/I/91S-dMxRCbL._AC_UF894,1000_QL80_.jpg',
-            'https://resizing.flixster.com/_hHrGE--WMvvWz4Jqg4OFttHYFQ=/206x305/v2/https://resizing.flixster.com/q--mi0ZXbKp4lKu39LRlZ80A2kE=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzMyNjRhN2UwLTk4ZDQtNGY4Yi1iN2M0LTQ1YmM4MjdiMjViMC53ZWJw',
-            'https://resizing.flixster.com/-KqHhxHxvBTElgzG90qf7pohQ-E=/206x305/v2/https://flxt.tmsimg.com/v9/AllPhotos/291307/291307_v9_bb.jpg',
-            'https://resizing.flixster.com/EsQ_Rd3lqP6fLArxL_xRtPnV7iE=/206x305/v2/https://flxt.tmsimg.com/NowShowing/291309/291309_v9_ba.jpg'
+        var movieImages = [
+            'https://m.media-amazon.com/images/M/MV5BODY5YjA3ZDgtM2EwYy00ZGVmLWFhNWItMTMxMWRkMWFiOTlkXkEyXkFqcGdeQXVyMTMzNDExODE5._V1_FMjpg_UX1000_.jpg',
+            'https://m.media-amazon.com/images/M/MV5BZWVjZWUyMzUtMGRiMS00MzhkLWI5NTQtYjBmZWVlZThjZjFkXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_FMjpg_UX1000_.jpg',
+            'https://m.media-amazon.com/images/M/MV5BNzNkZjJmY2MtNmJjZi00NWM0LWIzMzQtNzgzYmZlZGMzZTY4XkEyXkFqcGdeQXVyODQwNjgyMw@@._V1_.jpg'
+          
         ];
-        var currentShowIndex = 0;
-        var showCarouselImage = document.getElementById("showCarouselImage");
-        var confetti = document.getElementById("confetti");
+        var currentMovieIndex = 0;
+        var movieCarouselImage = document.getElementById("movieCarouselImage");
+        var endMessage = document.getElementById("endMessage");
 
-        function showShowImage(index) {
-            if (index >= showImages.length) {
-                // Show confetti animation
-                confetti.style.display = "block";
-                currentShowIndex = showImages.length; // Prevent further cycling
+        function showMovieImage(index) {
+            if (index >= movieImages.length) {
+                movieCarouselImage.style.display = "none";
+                endMessage.style.display = "block";
                 return;
             }
-            if (index < 0) {
-                index = showImages.length - 1;
-            }
-            showCarouselImage.src = showImages[index];
-            currentIndex = index;
-            confetti.style.display = "none"; // Hide confetti if not at the end
+            index = (index + movieImages.length) % movieImages.length;
+            movieCarouselImage.src = movieImages[index];
+            currentMovieIndex = index;
+            movieCarouselImage.style.display = "block";
+            endMessage.style.display = "none";
         }
 
-        function prevShowImage() {
-            showShowImage(currentShowIndex - 1);
+        function prevMovieImage() {
+            showMovieImage(currentMovieIndex - 1);
         }
 
-        function nextShowImage() {
-            showShowImage(currentShowIndex + 1);
+        function nextMovieImage() {
+            showMovieImage(currentMovieIndex + 1);
         }
 
-        // Show the first image when the page loads
-        showShowImage(0);
+        showMovieImage(0);
     </script>
 </body>
 </html>
